@@ -62,6 +62,12 @@ def local_get_qiita_ranking():
 
 @app.route("/api/qiita/ranking")
 def qiita():
+    query = request.args.get("local")
+
+    if query == "1":
+        app.logger.info('local executed')
+        return local_get_qiita_ranking()
+
     return get_qiita_ranking()
 
 
