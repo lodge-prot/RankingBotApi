@@ -105,6 +105,12 @@ def hatebu():
     return get_hatebu_ranking(url)
 
 
+@app.route("/api/livedoor/")
+def livedoor():
+    url = "https://news.livedoor.com/"
+    return requests.get(url).text
+
+
 @app.errorhandler(404)
 @app.errorhandler(404)
 def error_handler(error):
